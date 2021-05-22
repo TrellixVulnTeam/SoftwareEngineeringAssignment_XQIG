@@ -15,6 +15,6 @@ class Book(models.Model):
     publisher = models.CharField(max_length=100, blank=True, default='')
     publicationDate = models.DateField(auto_now_add=True)
     numberOfPages = models.IntegerField(default='')
-
+    author = models.ForeignKey('auth.User', related_name="books", on_delete=models.CASCADE)
     class Meta:
         ordering = ['created']
